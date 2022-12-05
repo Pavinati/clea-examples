@@ -13,10 +13,10 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 */
-
-import app from "./angular/main.js";
 // @ts-ignore
-import polyfills from "./angular/polyfills.js";
+import app from "./angular/main";
+// @ts-ignore
+import polyfills from "./angular/polyfills";
 
 type AppProps = {
   astarteUrl: URL;
@@ -53,14 +53,14 @@ const AppLifecycle = {
     appScriptElement.text = app;
     container.appendChild(appScriptElement);
 
-    const angularComponent = document.createElement("my-web-app"); // Change this with the imported component name
-    angularComponent.setAttribute("id", "my-web-app-id");
-    angularComponent.dataset.appProps = JSON.stringify(appProps);
-    angularComponent.dataset.settings = JSON.stringify(settings);
+    const angularComponent = document.createElement("app-line-chart"); // Change this with the imported component name
+    angularComponent.setAttribute("id", "app-line-chart-id");
+    angularComponent.setAttribute("appProps", JSON.stringify(appProps));
+    angularComponent.setAttribute("settings", JSON.stringify(settings));
     container.appendChild(angularComponent);
   },
   unmount: (container: ShadowRoot) =>
-    document.getElementById("my-web-app-id")?.remove(),
+    document.getElementById("app-line-chart-id")?.remove(),
 };
 
 export default AppLifecycle;

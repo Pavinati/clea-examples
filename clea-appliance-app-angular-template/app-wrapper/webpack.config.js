@@ -6,6 +6,10 @@ module.exports = {
   experiments: {
     outputModule: true,
   },
+  performance: {
+    maxEntrypointSize: 512000,
+    maxAssetSize: 512000
+  },
   output: {
     filename: "main.js",
     path: path.resolve(__dirname, "dist"),
